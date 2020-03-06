@@ -1,0 +1,10 @@
+{{> header title= 'Monthly Bullet'}}
+
+<ul style="list-style-type:none">
+
+  {{#each bulletsGroup }}
+    {{#each {{../this}} }}
+      <li>{{this.name}}</li>
+    {{/each}}
+  {{/each}}
+</ul>

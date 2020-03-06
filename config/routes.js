@@ -24,5 +24,6 @@ router.post('/bullets/:id/delete', authMiddleware.isLoggedIn, bulletsController.
 
 // BULLETS VIEWS
 router.get('/bullets/:month', authMiddleware.isLoggedIn, bulletsController.getMonth)
+router.get('/bullets/:month/weekly', authMiddleware.isLoggedIn, bulletsController.getWeekly)
 
 module.exports = router

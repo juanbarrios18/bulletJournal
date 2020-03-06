@@ -1,5 +1,7 @@
 const Bullet = require('../lib/bullets')
 const newBullet = new Bullet()
+const bulletModel = require('../models/bullet')
+const moment = require('moment')
 
 module.exports.index = (req, res, next) => {
   res.render('index', { layout: 'welcomeLayout' })
@@ -14,11 +16,19 @@ module.exports.getAll = (req, res, next) => {
 }
 
 module.exports.getMonth = (req, res, next) => {
-  console.log(typeof req.params.month)
-  newBullet.getMonth(req.params.month)
+  const month = Number(req.params.month)
+  newBullet.getMonth(month)
     .then(bullets => {
-      console.log(bullets)
       res.render('bullets/monthly', { bullets })
+    })
+    .catch(e => next(e))
+}
+
+module.exports.getWeekly = (req, res, next) => {
+  const month = Number(req.params.month)
+  newBullet.getWeekly(month)
+    .then(bullets => {
+      res.render('bullets/weekly', { bullets })
     })
     .catch(e => next(e))
 }

@@ -1,13 +1,5 @@
 const mongoose = require('mongoose')
 
-const schemaDate = new mongoose.Schema({
-  date: Date,
-  day: Number,
-  month: Number,
-  week: Number,
-  year: Number
-})
-
 const bulletSchema = new mongoose.Schema({
   name: {
     type: String,
@@ -15,7 +7,11 @@ const bulletSchema = new mongoose.Schema({
   },
   type: String,
   status: String,
-  date: schemaDate,
+  date: Date,
+  day: Number,
+  month: Number,
+  week: Number,
+  year: Number,
   userId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User'
