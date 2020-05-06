@@ -7,7 +7,7 @@ module.exports.index = (req, res, next) => {
 }
 
 module.exports.getAll = (req, res, next) => {
-  newBullet.getAll("5eb31d2dede0360eb405ec4f")
+  newBullet.getAll(req.user.id)
     .then(bullets => {
       console.log(bullets[0].date)
       res.render('bullets/index', { bullets })
