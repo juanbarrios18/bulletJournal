@@ -15,7 +15,7 @@ router.post('/logout', authController.doLogout)
 
 // BULLETS ROUTES
 router.get('/', authMiddleware.isLoggedIn, bulletsController.index)
-router.get('/bullets', authMiddleware.isLoggedIn, bulletsController.getAll)
+router.get('/bullets', bulletsController.getAll)
 router.get('/bullets/new', authMiddleware.isLoggedIn, bulletsController.new)
 router.post('/bullets/new', authMiddleware.isLoggedIn, bulletsController.doNew)
 router.get('/bullets/:id/edit', authMiddleware.isLoggedIn, bulletsController.edit)
