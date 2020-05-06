@@ -1,0 +1,55 @@
+{{> header title='Edit the bullet'}}
+
+<form action="/bullets/{{bullet.id}}/edit" method="post" class="needs-validation" novalidate>
+  
+  <div class="col-md-6 mb-3">
+    <label for="name">Name</label>
+    <input type="text" class="form-control" id="name" name="name" value="{{{bullet.name}}}">
+    <div class="invalid-feedback">
+      Valid name is required.
+    </div>
+  </div>
+  
+  <div class="col-md-6 mb-3">   
+    <label for="type">Type</label>
+    <select id="type" name="type">
+      {{#each selectOptions}}
+        <option value="{{this.value}}" {{#if this.selected}} selected {{/if}}>{{this.value}}</option>
+      {{/each}}
+      {{!-- <option value="task" >task</option>
+      <option value="note" >note</option>
+      <option value="event">event</option> --}}
+    </select>    
+    <div class="invalid-feedback">
+      Type is required.    
+    </div> 
+  </div>
+
+  <div class="col-md-6 mb-3">   
+    <label for="type">Status</label>
+    <select id="status" name="status">
+      {{#each statusOptions}}
+        <option value="{{this.value}}" {{#if this.selected}} selected {{/if}}>{{this.value}}</option>
+      {{/each}}
+      {{!-- <option value="task" >task</option>
+      <option value="note" >note</option>
+      <option value="event">event</option> --}}
+    </select>    
+    <div class="invalid-feedback">
+      Type is required.    
+    </div> 
+  </div>
+  
+  <div class="col-md-6 mb-3">
+    <label for="date">Date</label>
+    <input type="date" class="form-control" id="date" name="date" value="{{{bullet.date}}}">
+    <div class="invalid-feedbacke">
+      Date is required.
+    </div>
+  </div>
+  
+  <hr class="mb-4">  
+  <button class="btn btn-primary btn-lg btn-block" type="submit">Submit</button>
+
+</form>
+

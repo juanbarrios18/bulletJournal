@@ -26,16 +26,16 @@ module.exports.login = (req, res, next) => {
 
 module.exports.doLogin = passport.authenticate('local', {
   successRedirect: '/bullets',
-  failureRedirect: '/users/login'
+  failureRedirect: '/login'
 })
 
 module.exports.doLogin = passport.authenticate('local', {
   successRedirect: '/bullets',
-  failureRedirect: '/users/login'
+  failureRedirect: '/login'
 })
 
 // LOGOUT
 module.exports.doLogout = (req, res, next) => {
   req.logout()
-  res.redirect('/users/login')
+  res.redirect('/login')
 }
