@@ -1,6 +1,5 @@
 const Bullet = require('../lib/bullets')
 const newBullet = new Bullet()
-const bulletModel = require('../models/bullet')
 const moment = require('moment')
 
 module.exports.index = (req, res, next) => {
@@ -10,6 +9,7 @@ module.exports.index = (req, res, next) => {
 module.exports.getAll = (req, res, next) => {
   newBullet.getAll(req.user.id)
     .then(bullets => {
+      console.log(bullets[0].date)
       res.render('bullets/index', { bullets })
     })
     .catch(e => next(e))
@@ -56,7 +56,7 @@ module.exports.edit = (req, res, next) => {
       const bullet = values.bullet
       const selectOptions = values.selectOptions
       const statusOptions = values.statusOptions
-      res.render('bullets/edit', { bullet, selectOptions, statusOptions })
+      res.render('bullets/edit2', { bullet, selectOptions, statusOptions })
     })
     .catch(e => next(e))
 }

@@ -9,7 +9,6 @@ router.get('/', (req, res) => {
   res.render('index')
 })
 
-
 router.get('/all', (req, res) => {
   Bullet.find({ userId: req.user._id })
     .then(bullets => {
@@ -92,14 +91,7 @@ router.post('/:id/edit', (req, res) => {
 // DELETE Route
 // =============
 router.post('/:id/delete', (req, res) => {
-  Bullet.findByIdAndDelete({ _id: req.params.id })
-    .then(bullet => {
-      console.log(`Bullet ${bullet.name} deleted`)
-      res.redirect('/bullets')
-    })
-    .catch(e => {
-      console.log(e)
-    })
+  console.log('Route OK')
 })
 
 module.exports = router
